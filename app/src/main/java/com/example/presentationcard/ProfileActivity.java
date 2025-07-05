@@ -3,14 +3,13 @@ package com.example.presentationcard;
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity {
-
-    private String button2VisibilityKey = "button2_visibility";
+public class ProfileActivity extends AppCompatActivity {
 
     private int button2Visibility = VISIBLE;
 
@@ -21,13 +20,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Add layout reference
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_profile);
         // Get reference to the title TextView
         TextView title = findViewById(R.id.title_text);
 
         // Get reference to the two buttons
         Button button1 = findViewById(R.id.button1);
         Button button2 = findViewById(R.id.button2);
+
+        // Add button to navigate to EducationActivity
+        Button educationButton = findViewById(R.id.go_to_education);
+        educationButton.setOnClickListener(view -> {
+            Intent intent = new Intent(ProfileActivity.this, EducationActivity.class);
+            intent.putExtra(Constants.EXTRA_STRING_KEY, "Hello from ProfileActivity!");
+            startActivity(intent);
+        });
 
         /*if (savedInstanceState != null) {
             // Restore button2 visibility state
