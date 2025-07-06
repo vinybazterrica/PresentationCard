@@ -1,9 +1,12 @@
-package com.example.presentationcard;
+package com.example.presentationcard.activities;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class EducationActivity extends AppCompatActivity {
+import com.example.presentationcard.R;
+import com.example.presentationcard.utils.Constants;
+
+public class EducationActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

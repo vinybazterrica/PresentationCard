@@ -1,4 +1,7 @@
 <resources>
-    <string name="app_name">CartaPresentacion</string>
-    <string name="subtitle_main_screen">Desarrollador</string>
+    <string name="app_name">PresentationCard</string>
+    <string name="subtitle_main_screen">Developer</string>
+
+    <!-- ProfileActivity -->
+    <string name="user_name">Vinicius Bazterrica</string>
 </resources>

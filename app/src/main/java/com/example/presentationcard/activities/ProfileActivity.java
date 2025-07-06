@@ -1,17 +1,37 @@
-package com.example.presentationcard;
+package com.example.presentationcard.activities;
 
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Parcelable;
+import android.renderscript.ScriptGroup;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-public class ProfileActivity extends AppCompatActivity {
+import com.example.presentationcard.R;
+import com.example.presentationcard.databinding.ActivityProfileBinding;
+import com.example.presentationcard.interfaces.LinkedinApi;
+import com.example.presentationcard.models.entity.LinkedinProfile;
+import com.example.presentationcard.models.entity.LinkedinProfileResponse;
+import com.example.presentationcard.utils.Constants;
+import com.squareup.picasso.Picasso;
+
+import retrofit2.Call;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+public class ProfileActivity extends BaseActivity {
 
     private int button2Visibility = VISIBLE;
+    private ActivityProfileBinding binding;
+    private LinkedinProfile mLinkedinProfile;
 
     /**
      * Called when the activity is first created. Used to initialize the activity.
@@ -19,39 +39,48 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Add layout reference
-        setContentView(R.layout.activity_profile);
-        // Get reference to the title TextView
-        TextView title = findViewById(R.id.title_text);
 
-        // Get reference to the two buttons
-        Button button1 = findViewById(R.id.button1);
-        Button button2 = findViewById(R.id.button2);
+        binding = ActivityProfileBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        // Add button to navigate to EducationActivity
-        Button educationButton = findViewById(R.id.go_to_education);
-        educationButton.setOnClickListener(view -> {
+        if (savedInstanceState != null) {
+            mLinkedinProfile = savedInstanceState.getParcelable(Constants.LINKEDIN_PROFILE);
+        } else {
+            getIntentData();
+        }
+
+        setProfileData();
+        setOnClickListener();
+    }
+
+    private void getIntentData() {
+        mLinkedinProfile = getIntent().getParcelableExtra(Constants.LINKEDIN_PROFILE);
+    }
+
+    private void setProfileData() {
+        //Image Profile
+        Picasso.get().load(mLinkedinProfile.getProfile_image_url()).into(binding.ivProfileImage);
+
+        binding.tvUserName.setText(mLinkedinProfile.getFull_name());
+        binding.tvUserHeadLine.setText(mLinkedinProfile.getHeadline());
+
+        binding.txtLinkedinProfile.setText(mLinkedinProfile.getFull_name());
+    }
+
+    private void setOnClickListener() {
+        binding.btnGoToEducation.setOnClickListener(view -> {
             Intent intent = new Intent(ProfileActivity.this, EducationActivity.class);
             intent.putExtra(Constants.EXTRA_STRING_KEY, "Hello from ProfileActivity!");
             startActivity(intent);
         });
 
-        /*if (savedInstanceState != null) {
-            // Restore button2 visibility state
-            button2Visibility = savedInstanceState.getInt(button2VisibilityKey, button2.getVisibility());
-            button2.setVisibility(button2Visibility);
-        } else {
-            button2Visibility = button2.getVisibility();
-        }*/
-
-        // Add logic for button1 click
-        button1.setOnClickListener(v -> {
+        binding.button1.setOnClickListener(v -> {
             // Example hiding second button
-            if (button2.getVisibility() == VISIBLE) {
-                button2.setVisibility(INVISIBLE);
-            } else {
-                button2.setVisibility(VISIBLE);
-            }
+            binding.button2.setVisibility(binding.button2.getVisibility() == VISIBLE ? INVISIBLE : VISIBLE);
+        });
+
+        binding.llLinkedin.setOnClickListener(v -> {
+            goToUrl(mLinkedinProfile.getLinkedin_url());
         });
     }
 
@@ -116,6 +145,6 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         // Save button2 visibility state
-        //outState.putInt(button2VisibilityKey, button2Visibility);
+        outState.putParcelable(Constants.LINKEDIN_PROFILE, mLinkedinProfile);
     }
 }

@@ -24,6 +24,9 @@ android {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
     }
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
@@ -31,4 +34,13 @@ dependencies {
     implementation libs.appcompat
     implementation libs.material
     implementation libs.activity
+
+    //Retrofit and Gson
+    implementation libs.retrofit
+    implementation libs.converter.gson
+
+    //Picasso
+    implementation 'com.squareup.picasso:picasso:2.8'
+
+    implementation libs.constraintlayout
 }
