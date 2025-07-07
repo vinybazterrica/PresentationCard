@@ -5,8 +5,9 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center_horizontal">
+    android:background="@color/black"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/ivProfileImage"
@@ -22,34 +23,36 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/tvUserName"
+            style="@style/TextViewPurple500"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="@string/user_name"
-            android:textStyle="bold"
+            android:paddingStart="24dp"
             android:textSize="28sp"
-            android:paddingStart="24dp"/>
+            android:textStyle="bold"
+            tools:text="@string/user_name" />
 
         <TextView
             android:id="@+id/tvUserHeadLine"
+            style="@style/TextViewPurple500"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            tools:text="@string/subtitle_main_screen"
+            android:paddingStart="24dp"
             android:textSize="20sp"
-            android:paddingStart="24dp" />
+            tools:text="@string/subtitle_main_screen" />
     </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/networks_container"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginHorizontal="24dp">
+        android:layout_marginHorizontal="35dp"
+        android:layout_marginTop="16dp">
 
         <LinearLayout
             android:id="@+id/llLinkedin"
@@ -62,37 +65,40 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@drawable/ic_linkedin"
-                app:tint="@color/purple_700"/>
+                app:tint="@color/purple_500" />
 
             <TextView
                 android:id="@+id/txtLinkedinProfile"
+                style="@style/TextViewPurple500"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:gravity="center"
                 android:layout_marginStart="5dp"
-                tools:text="Linkedin"/>
+                android:gravity="center"
+                tools:text="Linkedin" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/network_item_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
             android:layout_marginStart="80dp"
-            android:layout_toEndOf="@id/llLinkedin"
             android:gravity="center"
             android:orientation="horizontal">
 
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/email"/>
+                android:src="@drawable/email"
+                app:tint="@color/purple_500" />
 
             <TextView
+                style="@style/TextViewPurple500"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:gravity="center"
                 android:layout_marginStart="5dp"
-                android:text="Network 2"/>
+                android:gravity="center"
+                android:text="Network 2" />
         </LinearLayout>
 
         <LinearLayout
@@ -107,14 +113,16 @@
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/email"/>
+                android:src="@drawable/email"
+                app:tint="@color/purple_500" />
 
             <TextView
+                style="@style/TextViewPurple500"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:gravity="center"
                 android:layout_marginStart="5dp"
-                android:text="Network 3"/>
+                android:gravity="center"
+                android:text="Network 3" />
         </LinearLayout>
 
         <LinearLayout
@@ -122,23 +130,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/network_item_2"
+            android:layout_alignParentEnd="true"
             android:layout_marginStart="80dp"
             android:layout_marginTop="32dp"
-            android:layout_toEndOf="@id/network_item_3"
             android:gravity="center"
             android:orientation="horizontal">
 
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/email"/>
+                android:src="@drawable/email"
+                app:tint="@color/purple_500" />
 
             <TextView
+                style="@style/TextViewPurple500"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:gravity="center"
                 android:layout_marginStart="5dp"
-                android:text="Network 4"/>
+                android:gravity="center"
+                android:text="Network 4" />
         </LinearLayout>
 
     </RelativeLayout>
@@ -148,32 +158,37 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:orientation="horizontal"
-        android:paddingHorizontal="12dp"
         android:layout_marginTop="24dp"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingHorizontal="12dp">
+
         <Button
             android:id="@+id/button1"
+            style="@style/ButtonBorderPurple500"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginEnd="5dp"
-            android:text="Hide"/>
+            android:layout_weight="1"
+            android:text="Hide" />
+
         <Button
             android:id="@+id/button2"
+            style="@style/ButtonBorderPurple500"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginStart="5dp"
-            android:text="Button 2"/>
+            android:layout_weight="1"
+            android:text="Button 2" />
     </LinearLayout>
 
     <Button
         android:id="@+id/btnGoToEducation"
+        style="@style/ButtonBorderPurple500"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="42dp"
         android:layout_marginTop="20dp"
-        android:text="Go to Education"/>
+        android:text="Go to Education" />
 
 </LinearLayout>

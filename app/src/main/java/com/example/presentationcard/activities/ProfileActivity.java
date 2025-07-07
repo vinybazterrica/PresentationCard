@@ -4,28 +4,12 @@ import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Parcelable;
-import android.renderscript.ScriptGroup;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.presentationcard.R;
 import com.example.presentationcard.databinding.ActivityProfileBinding;
-import com.example.presentationcard.interfaces.LinkedinApi;
 import com.example.presentationcard.models.entity.LinkedinProfile;
-import com.example.presentationcard.models.entity.LinkedinProfileResponse;
 import com.example.presentationcard.utils.Constants;
 import com.squareup.picasso.Picasso;
-
-import retrofit2.Call;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ProfileActivity extends BaseActivity {
 

@@ -1,6 +1,5 @@
-package com.example.presentationcard.interfaces;
+package com.example.presentationcard.network;
 
-import com.example.presentationcard.models.entity.LinkedinProfile;
 import com.example.presentationcard.models.entity.LinkedinProfileResponse;
 import com.example.presentationcard.utils.Constants;
 

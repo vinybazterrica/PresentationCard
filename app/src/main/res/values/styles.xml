@@ -4,4 +4,15 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
     </style>
+
+    <style name="TextViewPurple500" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/purple_500</item>
+    </style>
+
+    <style name="ButtonBorderPurple500" parent="Widget.Material3.Button">
+        <item name="strokeColor">@color/purple_500</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="backgroundTint">@android:color/transparent</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
 </resources>

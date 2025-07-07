@@ -5,6 +5,8 @@ public class Constants {
     public static final String EXTRA_STRING_KEY = "extra_string";
 
 
+    public static final String VERSION_APP = "Versión ";
+
     //API
     public static final String LINKEDIN_API_KEY = "ae986d2cb4msh424f8c5e6e1d3c0p192e29jsn3445746e54dc";
     public static final String LINKEDIN_API_HOST = "fresh-linkedin-profile-data.p.rapidapi.com";
