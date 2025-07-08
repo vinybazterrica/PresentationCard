@@ -1,23 +1,17 @@
 package com.example.presentationcard.activities;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.example.presentationcard.R;
 import com.example.presentationcard.databinding.ActivitySplashBinding;
 import com.example.presentationcard.helper.IntentHelper;
-import com.example.presentationcard.network.LinkedinApi;
+import com.example.presentationcard.helper.StringHelper;
 import com.example.presentationcard.models.entity.LinkedinProfile;
-import com.example.presentationcard.models.entity.LinkedinProfileResponse;
 import com.example.presentationcard.network.LinkedinCallBack;
-import com.example.presentationcard.network.LinkedinManager;
 import com.example.presentationcard.utils.Constants;
-import com.squareup.picasso.BuildConfig;
-
-import retrofit2.Call;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SplashActivity extends BaseActivity {
 
@@ -30,12 +24,34 @@ public class SplashActivity extends BaseActivity {
         binding = ActivitySplashBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.tvVersionApp.setText(Constants.VERSION_APP + BuildConfig.VERSION_NAME);
+        binding.tvVersionApp.setText(Constants.VERSION_APP + StringHelper.getVersionApp(this));
 
         getUserLinkdeinData();
     }
 
-    private void getUserLinkdeinData(){
+    private void loadingText() {
+        final Handler handler = new Handler();
+        final String[] dots = {"", ".", "..", "...", "...."};
+        final int[] index = {0};
+
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                binding.tvLoading.setText(getString(R.string.loading_data) + dots[index[0]]);
+                index[0] = (index[0] + 1) % dots.length;
+                handler.postDelayed(this, 500);
+            }
+        }, 500);
+    }
+
+    private void getUserLinkdeinData() {
+        if (!BaseActivity.isNetworkAvailable(this)){
+            Toast.makeText(this, Constants.ERROR_NETWORK, Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        loadingText();
+
         getLinkedinUserData(this, new LinkedinCallBack() {
             @Override
             public void onSuccess(LinkedinProfile profile) {

@@ -4,4 +4,7 @@
 
     <!-- ProfileActivity -->
     <string name="user_name">Vinicius Bazterrica</string>
+    
+    <!--SplashActivity-->
+    <string name="loading_data">Obteniendo datos</string>
 </resources>

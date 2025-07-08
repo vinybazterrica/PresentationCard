@@ -21,5 +21,6 @@ public class Constants {
     //ERROR
     public static final String LINKEDIN_NO_DATA = "Datos no encontrados";
     public static final String LINKEDIN_ERROR = "Error al obtener los datos de LinkedIn, intente mas tarde";
+    public static final String ERROR_NETWORK = "Error de red, verifique su conexión a Internet";
 }
 
