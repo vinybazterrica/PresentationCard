@@ -183,12 +183,12 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnGoToEducation"
+        android:id="@+id/btnGoToExperience"
         style="@style/ButtonBorderPurple500"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="42dp"
         android:layout_marginTop="20dp"
-        android:text="Go to Education" />
+        android:text="@string/go_to_experiences" />
 
 </LinearLayout>

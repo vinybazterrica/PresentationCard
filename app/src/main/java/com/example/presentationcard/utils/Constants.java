@@ -16,6 +16,7 @@ public class Constants {
 
     //KEYS
     public static final String LINKEDIN_PROFILE = "LINKEDIN_PROFILE";
+    public static final String LINKEDIN_EXPERIENCES_LIST = "LINKEDIN_EXPERIENCES_LIST";
 
 
     //ERROR

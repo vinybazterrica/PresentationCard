@@ -4,8 +4,13 @@
 
     <!-- ProfileActivity -->
     <string name="user_name">Vinicius Bazterrica</string>
-
+    <string name="go_to_experiences">Go to Experiences</string>
 
     <!--SplashActivity-->
     <string name="loading_data">Obtaining data</string>
+
+    <!-- ExperienceActivity -->
+    <string name="experience_title_activity">Experiences</string>
+    <string name="experience_title">Job :</string>
+    <string name="experience_description">Description :</string>
 </resources>

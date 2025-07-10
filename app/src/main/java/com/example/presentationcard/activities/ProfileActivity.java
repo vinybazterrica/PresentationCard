@@ -5,11 +5,17 @@ import static android.view.View.VISIBLE;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 
 import com.example.presentationcard.databinding.ActivityProfileBinding;
+import com.example.presentationcard.helper.IntentHelper;
+import com.example.presentationcard.models.entity.LinkedinExperience;
 import com.example.presentationcard.models.entity.LinkedinProfile;
 import com.example.presentationcard.utils.Constants;
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProfileActivity extends BaseActivity {
 
@@ -51,11 +57,15 @@ public class ProfileActivity extends BaseActivity {
         binding.txtLinkedinProfile.setText(mLinkedinProfile.getFull_name());
     }
 
+    private void goToExperiences(List<LinkedinExperience> experiencesList){
+        Bundle bundle = new Bundle();
+        bundle.putParcelableArrayList(Constants.LINKEDIN_EXPERIENCES_LIST, new ArrayList<>(experiencesList));
+        IntentHelper.goToExperience(this, bundle);
+    }
+
     private void setOnClickListener() {
-        binding.btnGoToEducation.setOnClickListener(view -> {
-            Intent intent = new Intent(ProfileActivity.this, EducationActivity.class);
-            intent.putExtra(Constants.EXTRA_STRING_KEY, "Hello from ProfileActivity!");
-            startActivity(intent);
+        binding.btnGoToExperience.setOnClickListener(view -> {
+            goToExperiences(mLinkedinProfile.getExperiences());
         });
 
         binding.button1.setOnClickListener(v -> {
