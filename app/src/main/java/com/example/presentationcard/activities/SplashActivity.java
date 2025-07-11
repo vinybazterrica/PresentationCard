@@ -1,5 +1,7 @@
 package com.example.presentationcard.activities;
 
+import static com.example.presentationcard.helper.StorageHelper.getLinkedinProfileStorage;
+
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -7,10 +9,12 @@ import android.widget.Toast;
 
 import com.example.presentationcard.R;
 import com.example.presentationcard.databinding.ActivitySplashBinding;
-import com.example.presentationcard.helper.IntentHelper;
+import com.example.presentationcard.helper.ResourcesHelper;
+import com.example.presentationcard.helper.StorageHelper;
 import com.example.presentationcard.helper.StringHelper;
 import com.example.presentationcard.models.entity.LinkedinProfile;
 import com.example.presentationcard.network.LinkedinCallBack;
+import com.example.presentationcard.network.LinkedinManager;
 import com.example.presentationcard.utils.Constants;
 
 public class SplashActivity extends BaseActivity {
@@ -26,39 +30,39 @@ public class SplashActivity extends BaseActivity {
 
         binding.tvVersionApp.setText(Constants.VERSION_APP + StringHelper.getVersionApp(this));
 
-        getUserLinkdeinData();
+        shouldGetLinkedinData();
     }
 
-    private void loadingText() {
-        final Handler handler = new Handler();
-        final String[] dots = {"", ".", "..", "...", "...."};
-        final int[] index = {0};
+    private void shouldGetLinkedinData() {
+        LinkedinProfile linkedinProfile = StorageHelper.getLinkedinProfileStorage();
+        long lastLinkedinData = StorageHelper.getInstance().getLongPreferences(Constants.KEY_LAST_GET_LINKEDIN_DATA);
 
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                binding.tvLoading.setText(getString(R.string.loading_data) + dots[index[0]]);
-                index[0] = (index[0] + 1) % dots.length;
-                handler.postDelayed(this, 500);
-            }
-        }, 500);
+        if (lastLinkedinData == 0 ||
+                System.currentTimeMillis() - lastLinkedinData > Constants.TWENTY_FOUR_HOURS_IN_MILLS ||
+                    linkedinProfile == null){
+            StorageHelper.getInstance().putLongPreferences(Constants.KEY_LAST_GET_LINKEDIN_DATA, System.currentTimeMillis());
+            getUserLinkdeinData();
+        } else {
+            showToast(this,  Constants.USING_STORAGE_USER);
+            goToProfile(linkedinProfile);
+        }
     }
 
     private void getUserLinkdeinData() {
-        if (!BaseActivity.isNetworkAvailable(this)){
-            Toast.makeText(this, Constants.ERROR_NETWORK, Toast.LENGTH_LONG).show();
+        if (!ResourcesHelper.isNetworkAvailable(this)){
+            showToast(this,  Constants.ERROR_NETWORK);
             return;
         }
 
-        loadingText();
+        StringHelper.addDotsToMessaje(getString(R.string.loading_data), binding.tvLoading);
 
-        getLinkedinUserData(this, new LinkedinCallBack() {
+        LinkedinManager.getLinkedinUserData(this, new LinkedinCallBack() {
             @Override
             public void onSuccess(LinkedinProfile profile) {
                 Log.d("ProfileActivity", "Perfil recibido: " + profile.getFull_name());
-                Bundle bundle = new Bundle();
-                bundle.putParcelable(Constants.LINKEDIN_PROFILE, profile);
-                IntentHelper.goToProfile(SplashActivity.this, bundle);
+                StorageHelper.saveLinkedinProfileStorage(SplashActivity.this, profile);
+                showToast(SplashActivity.this,  Constants.SAVE_LINKEDIN_DATA);
+                goToProfile(profile);
             }
 
             @Override

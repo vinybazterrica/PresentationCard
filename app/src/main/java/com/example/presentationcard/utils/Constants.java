@@ -6,9 +6,15 @@ public class Constants {
 
 
     public static final String VERSION_APP = "Versión ";
+    public static final String USING_STORAGE_USER = "Utilizando almacenamiento local para los datos de usuario";
+    public static final String SAVE_LINKEDIN_DATA = "Almacenando datos de LinkedIn";
+
+    //NUMBERS
+    public static final int TWENTY_FOUR_HOURS_IN_MILLS = 86400000; //24 hours
+
 
     //API
-    public static final String LINKEDIN_API_KEY = "ae986d2cb4msh424f8c5e6e1d3c0p192e29jsn3445746e54dc";
+    public static final String LINKEDIN_API_KEY = "4730446bbdmshb564d5db61def3ep1da234jsn628f6c0f6370";
     public static final String LINKEDIN_API_HOST = "fresh-linkedin-profile-data.p.rapidapi.com";
     public static final String LINKEDIN_API_BASE_URL = "https://fresh-linkedin-profile-data.p.rapidapi.com/";
     public static final String LINKEDIN_API_GET_PROFILE_PUBLIC_DATA = "get-profile-public-data";
@@ -23,5 +29,10 @@ public class Constants {
     public static final String LINKEDIN_NO_DATA = "Datos no encontrados";
     public static final String LINKEDIN_ERROR = "Error al obtener los datos de LinkedIn, intente mas tarde";
     public static final String ERROR_NETWORK = "Error de red, verifique su conexión a Internet";
+
+    //STORAGE
+    public static final String SHARED_PREFERENCES = "summary";
+    public static final String LINKEDIN_PROFILE_STORAGE = "LINKEDIN_PROFILE_STORAGE";
+    public static final String KEY_LAST_GET_LINKEDIN_DATA = "KEY_LAST_GET_LINKEDIN_DATA";
 }
 

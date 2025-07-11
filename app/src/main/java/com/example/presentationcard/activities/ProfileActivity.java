@@ -48,7 +48,6 @@ public class ProfileActivity extends BaseActivity {
     }
 
     private void setProfileData() {
-        //Image Profile
         Picasso.get().load(mLinkedinProfile.getProfile_image_url()).into(binding.ivProfileImage);
 
         binding.tvUserName.setText(mLinkedinProfile.getFull_name());

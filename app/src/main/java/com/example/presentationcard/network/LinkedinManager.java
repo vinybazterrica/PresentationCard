@@ -1,8 +1,10 @@
 package com.example.presentationcard.network;
 
+import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 
+import com.example.presentationcard.activities.BaseActivity;
 import com.example.presentationcard.models.entity.LinkedinProfile;
 import com.example.presentationcard.models.entity.LinkedinProfileResponse;
 import com.example.presentationcard.utils.Constants;
@@ -54,6 +56,21 @@ public class LinkedinManager {
                 String msg = "Error de red: " + t.getMessage();
                 Log.e("LinkedinManager", msg);
                 callback.onError(msg);
+            }
+        });
+    }
+
+    public static void getLinkedinUserData(Activity activity, LinkedinCallBack callback) {
+        LinkedinManager.onGetLinkedinProfile(activity, new LinkedinCallBack() {
+            @Override
+            public void onSuccess(LinkedinProfile profile) {
+                callback.onSuccess(profile);
+            }
+
+            @Override
+            public void onError(String errorMessage) {
+                BaseActivity.showToast(activity, errorMessage);
+                callback.onError(errorMessage);
             }
         });
     }

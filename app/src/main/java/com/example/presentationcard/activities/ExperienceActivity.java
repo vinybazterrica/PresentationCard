@@ -36,13 +36,13 @@ public class ExperienceActivity extends AppCompatActivity {
             getIntentData();
         }
 
-        showExperiencesRecycler();
+        showExperiencesRecycler(mLinkedinExperiences);
     }
 
-    private void showExperiencesRecycler() {
+    private void showExperiencesRecycler(List<LinkedinExperience> experiencesList) {
         binding.rvExperiences.setHasFixedSize(true);
         binding.rvExperiences.setLayoutManager(new StaggeredGridLayoutManager(1, 1));
-        binding.rvExperiences.setAdapter(new ExperiencesAdapter(mLinkedinExperiences, this));
+        binding.rvExperiences.setAdapter(new ExperiencesAdapter(experiencesList, this));
     }
 
     private void getIntentData() {
@@ -52,7 +52,6 @@ public class ExperienceActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        // Save button2 visibility state
-        outState.putParcelableArrayList(Constants.LINKEDIN_EXPERIENCES_LIST,
-                new ArrayList<>(mLinkedinExperiences));    }
+        outState.putParcelableArrayList(Constants.LINKEDIN_EXPERIENCES_LIST, new ArrayList<>(mLinkedinExperiences));
+    }
 }

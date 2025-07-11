@@ -12,7 +12,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.presentationcard.R;
+import com.example.presentationcard.databinding.ActivitySplashBinding;
 import com.example.presentationcard.helper.IntentHelper;
+import com.example.presentationcard.helper.StorageHelper;
 import com.example.presentationcard.helper.StringHelper;
 import com.example.presentationcard.models.entity.LinkedinProfile;
 import com.example.presentationcard.network.LinkedinCallBack;
@@ -21,41 +23,29 @@ import com.example.presentationcard.utils.Constants;
 
 public class BaseActivity extends AppCompatActivity {
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        StorageHelper storage = StorageHelper.getInstance();
+        storage.init(this);
+    }
 
-    public void goToUrl(String url){
+
+    /*GO TO*/
+    public void goToUrl(String url) {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(url));
         startActivity(intent);
     }
 
-
-    /*Calls API*/
-    public void getLinkedinUserData(Activity activity, LinkedinCallBack callback) {
-        LinkedinManager.onGetLinkedinProfile(activity, new LinkedinCallBack() {
-            @Override
-            public void onSuccess(LinkedinProfile profile) {
-                callback.onSuccess(profile);
-            }
-
-            @Override
-            public void onError(String errorMessage) {
-                Toast.makeText(activity, errorMessage, Toast.LENGTH_SHORT).show();
-                callback.onError(errorMessage);
-            }
-        });
+    public void goToProfile(LinkedinProfile profile) {
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(Constants.LINKEDIN_PROFILE, profile);
+        IntentHelper.goToProfile(this, bundle);
     }
 
-
-    /*Internet*/
-    public static boolean isNetworkAvailable(Context context) {
-        ConnectivityManager connectivityManager = (ConnectivityManager)
-                context.getSystemService(Context.CONNECTIVITY_SERVICE);
-
-        if (connectivityManager != null) {
-            NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-            return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-        }
-        return false;
+    /*MESSAGES*/
+    public static void showToast(Context context, String message) {
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
     }
-
 }
