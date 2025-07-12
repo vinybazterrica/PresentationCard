@@ -41,7 +41,7 @@ public class BaseActivity extends AppCompatActivity {
     public void goToProfile(LinkedinProfile profile) {
         Bundle bundle = new Bundle();
         bundle.putParcelable(Constants.LINKEDIN_PROFILE, profile);
-        IntentHelper.goToProfile(this, bundle);
+        IntentHelper.goToProfile(this, bundle, true);
     }
 
     /*MESSAGES*/

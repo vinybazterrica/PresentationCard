@@ -9,6 +9,7 @@ import android.os.Parcelable;
 
 import com.example.presentationcard.databinding.ActivityProfileBinding;
 import com.example.presentationcard.helper.IntentHelper;
+import com.example.presentationcard.helper.StorageHelper;
 import com.example.presentationcard.models.entity.LinkedinExperience;
 import com.example.presentationcard.models.entity.LinkedinProfile;
 import com.example.presentationcard.utils.Constants;
@@ -33,9 +34,9 @@ public class ProfileActivity extends BaseActivity {
         binding = ActivityProfileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        if (savedInstanceState != null) {
-            mLinkedinProfile = savedInstanceState.getParcelable(Constants.LINKEDIN_PROFILE);
-        } else {
+        mLinkedinProfile = StorageHelper.getInstance().getLinkedinProfile();
+
+        if (mLinkedinProfile == null) {
             getIntentData();
         }
 
@@ -59,7 +60,7 @@ public class ProfileActivity extends BaseActivity {
     private void goToExperiences(List<LinkedinExperience> experiencesList){
         Bundle bundle = new Bundle();
         bundle.putParcelableArrayList(Constants.LINKEDIN_EXPERIENCES_LIST, new ArrayList<>(experiencesList));
-        IntentHelper.goToExperience(this, bundle);
+        IntentHelper.goToExperience(this, bundle, false);
     }
 
     private void setOnClickListener() {
@@ -74,6 +75,10 @@ public class ProfileActivity extends BaseActivity {
 
         binding.llLinkedin.setOnClickListener(v -> {
             goToUrl(mLinkedinProfile.getLinkedin_url());
+        });
+
+        binding.btnGoToCertificates.setOnClickListener(v -> {
+            IntentHelper.goToCertificates(this, null, false);
         });
     }
 
@@ -138,6 +143,6 @@ public class ProfileActivity extends BaseActivity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         // Save button2 visibility state
-        outState.putParcelable(Constants.LINKEDIN_PROFILE, mLinkedinProfile);
+        //outState.putParcelable(Constants.LINKEDIN_PROFILE, mLinkedinProfile); /*Lo almaceno en el Storage*/
     }
 }

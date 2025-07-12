@@ -5,6 +5,7 @@
     <!-- ProfileActivity -->
     <string name="user_name">Vinicius Bazterrica</string>
     <string name="go_to_experiences">Go to Experiences</string>
+    <string name="go_to_certificates">Go To Certificates</string>
 
     <!--SplashActivity-->
     <string name="loading_data">Obtaining data</string>
@@ -13,4 +14,7 @@
     <string name="experience_title_activity">Experiences</string>
     <string name="experience_title">Job :</string>
     <string name="experience_description">Description :</string>
+
+    <!-- CertificatesActivity -->
+    <string name="certificates_title_activity">Certificates</string>
 </resources>

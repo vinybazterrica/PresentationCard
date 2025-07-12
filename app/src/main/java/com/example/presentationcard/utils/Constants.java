@@ -23,6 +23,7 @@ public class Constants {
     //KEYS
     public static final String LINKEDIN_PROFILE = "LINKEDIN_PROFILE";
     public static final String LINKEDIN_EXPERIENCES_LIST = "LINKEDIN_EXPERIENCES_LIST";
+    public static final String FULL_SCREEN_IMAGE_URL = "FULL_SCREEN_IMAGE_URL";
 
 
     //ERROR
@@ -34,5 +35,11 @@ public class Constants {
     public static final String SHARED_PREFERENCES = "summary";
     public static final String LINKEDIN_PROFILE_STORAGE = "LINKEDIN_PROFILE_STORAGE";
     public static final String KEY_LAST_GET_LINKEDIN_DATA = "KEY_LAST_GET_LINKEDIN_DATA";
+
+    //CERTIFICATES
+    public static final String[] CERTIFICATES = {
+        "https://api.educacionit.com/pdf/certificados/vinicius-kaluan-bazterrica-173248/31396?content_type=jpeg",
+            "https://api.educacionit.com/pdf/certificados/vinicius-kaluan-bazterrica-173248/76206?content_type=jpeg"
+    };
 }
 

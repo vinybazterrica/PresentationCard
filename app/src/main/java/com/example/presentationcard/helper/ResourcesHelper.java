@@ -1,5 +1,6 @@
 package com.example.presentationcard.helper;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -16,5 +17,11 @@ public class ResourcesHelper {
             return activeNetworkInfo != null && activeNetworkInfo.isConnected();
         }
         return false;
+    }
+
+    /*Orientation*/
+    public static boolean isLandscape(Activity activity) {
+        int orientation = activity.getResources().getConfiguration().orientation;
+        return orientation == android.content.res.Configuration.ORIENTATION_LANDSCAPE;
     }
 }

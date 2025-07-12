@@ -5,12 +5,16 @@
     <!-- ProfileActivity -->
     <string name="user_name">Vinicius Bazterrica</string>
     <string name="go_to_experiences">Ir a Experiencias</string>
+    <string name="go_to_certificates">Ir a Certificados</string>
 
     <!--SplashActivity-->
     <string name="loading_data">Obteniendo datos</string>
-    
+
     <!-- ExperienceActivity -->
     <string name="experience_title_activity">Experiencias</string>
     <string name="experience_title">Puesto :</string>
     <string name="experience_description">Descripción :</string>
+
+    <!-- CertificatesActivity -->
+    <string name="certificates_title_activity">Certificados</string>
 </resources>
