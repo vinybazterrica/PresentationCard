@@ -2,11 +2,13 @@ package com.example.presentationcard.adapter;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.presentationcard.R;
 import com.example.presentationcard.databinding.ItemCertificatesBinding;
 import com.example.presentationcard.databinding.ItemExperiencesLinkedinBinding;
 import com.example.presentationcard.models.entity.LinkedinExperience;
@@ -53,7 +55,20 @@ public class CertificatesAdapter extends RecyclerView.Adapter<CertificatesAdapte
 
     @Override
     public void onBindViewHolder(@NonNull CertificatesAdapter.CertificatesViewHolder holder, int position) {
-        Picasso.get().load(Constants.CERTIFICATES[position]).into(holder.binding.ivCertificateImage);
+
+        Picasso.get()
+                .load(Constants.CERTIFICATES[position])
+                .into(holder.binding.ivCertificateImage, new com.squareup.picasso.Callback() {
+                    @Override
+                    public void onSuccess() {
+                        holder.binding.progressBar.setVisibility(View.GONE);
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+                        holder.binding.progressBar.setVisibility(View.GONE);
+                    }
+                });
     }
 
     @Override

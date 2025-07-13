@@ -6,6 +6,7 @@ import static android.view.View.VISIBLE;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.view.View;
 
 import com.example.presentationcard.databinding.ActivityProfileBinding;
 import com.example.presentationcard.helper.IntentHelper;
@@ -49,7 +50,20 @@ public class ProfileActivity extends BaseActivity {
     }
 
     private void setProfileData() {
-        Picasso.get().load(mLinkedinProfile.getProfile_image_url()).into(binding.ivProfileImage);
+
+        Picasso.get()
+                .load(mLinkedinProfile.getProfile_image_url())
+                .into(binding.ivProfileImage, new com.squareup.picasso.Callback() {
+                    @Override
+                    public void onSuccess() {
+                        binding.progressBarImage.setVisibility(View.GONE);
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+                        binding.progressBarImage.setVisibility(View.GONE);
+                    }
+                });
 
         binding.tvUserName.setText(mLinkedinProfile.getFull_name());
         binding.tvUserHeadLine.setText(mLinkedinProfile.getHeadline());
