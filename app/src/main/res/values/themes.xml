@@ -17,6 +17,9 @@
 
         <!-- Status bar color -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+
+        <!-- Tint color for vector drawables DayNight -->
+        <item name="colorControlNormal">@color/black</item>
     </style>
 
     <style name="Theme.PresentationCard.NoActionBar">

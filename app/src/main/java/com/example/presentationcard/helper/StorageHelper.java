@@ -64,4 +64,14 @@ public class StorageHelper {
     public static LinkedinProfile getLinkedinProfileStorage() {
         return StorageHelper.getInstance().getLinkedinProfile();
     }
+
+    public void setDarkModeEnabled(boolean enabled) {
+        sharedPreferences.edit()
+                .putBoolean(Constants.IS_DARK_MODE, enabled)
+                .apply();
+    }
+
+    public boolean isDarkModeEnabled() {
+        return sharedPreferences.getBoolean(Constants.IS_DARK_MODE, false);
+    }
 }

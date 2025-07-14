@@ -24,6 +24,7 @@ public class Constants {
     public static final String LINKEDIN_PROFILE = "LINKEDIN_PROFILE";
     public static final String LINKEDIN_EXPERIENCES_LIST = "LINKEDIN_EXPERIENCES_LIST";
     public static final String FULL_SCREEN_IMAGE_URL = "FULL_SCREEN_IMAGE_URL";
+    public static final String IS_DARK_MODE = "IS_DARK_MODE";
 
 
     //ERROR

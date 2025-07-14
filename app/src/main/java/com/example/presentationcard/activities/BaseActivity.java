@@ -7,9 +7,11 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.example.presentationcard.R;
 import com.example.presentationcard.databinding.ActivitySplashBinding;
@@ -23,11 +25,11 @@ import com.example.presentationcard.utils.Constants;
 
 public class BaseActivity extends AppCompatActivity {
 
+    private StorageHelper mStorage = StorageHelper.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        StorageHelper storage = StorageHelper.getInstance();
-        storage.init(this);
     }
 
 
@@ -47,5 +49,34 @@ public class BaseActivity extends AppCompatActivity {
     /*MESSAGES*/
     public static void showToast(Context context, String message) {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+    }
+
+    /*SWITCH*/
+    protected void setupThemeSwitch(Switch themeSwitch) {
+        if (themeSwitch == null) return;
+
+        boolean isDarkMode = mStorage.isDarkModeEnabled();
+        themeSwitch.setChecked(isDarkMode);
+
+        themeSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            mStorage.setDarkModeEnabled(isChecked);
+
+            AppCompatDelegate.setDefaultNightMode(
+                    isChecked ?
+                            AppCompatDelegate.MODE_NIGHT_YES :
+                            AppCompatDelegate.MODE_NIGHT_NO
+            );
+        });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Buscar el switch si está presente
+        Switch themeSwitch = findViewById(R.id.themeSwitch);
+        if (themeSwitch != null) {
+            setupThemeSwitch(themeSwitch);
+        }
     }
 }

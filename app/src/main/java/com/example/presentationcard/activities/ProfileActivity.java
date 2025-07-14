@@ -8,7 +8,9 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.View;
 
+import com.example.presentationcard.R;
 import com.example.presentationcard.databinding.ActivityProfileBinding;
+import com.example.presentationcard.databinding.ViewThemeSwitchBinding;
 import com.example.presentationcard.helper.IntentHelper;
 import com.example.presentationcard.helper.StorageHelper;
 import com.example.presentationcard.models.entity.LinkedinExperience;
@@ -94,6 +96,11 @@ public class ProfileActivity extends BaseActivity {
         binding.btnGoToCertificates.setOnClickListener(v -> {
             IntentHelper.goToCertificates(this, null, false);
         });
+
+        ViewThemeSwitchBinding themeSwitchBinding = ViewThemeSwitchBinding.bind(
+                findViewById(R.id.themeSwitchContainer)
+        );
+        setupThemeSwitch(themeSwitchBinding.themeSwitch);
     }
 
     /**
