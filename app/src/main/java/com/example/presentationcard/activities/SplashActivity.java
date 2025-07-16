@@ -60,7 +60,7 @@ public class SplashActivity extends BaseActivity {
             @Override
             public void onSuccess(LinkedinProfile profile) {
                 Log.d("ProfileActivity", "Perfil recibido: " + profile.getFull_name());
-                StorageHelper.saveLinkedinProfileStorage(SplashActivity.this, profile);
+                StorageHelper.saveLinkedinProfileStorage(profile);
                 showToast(SplashActivity.this,  Constants.SAVE_LINKEDIN_DATA);
                 goToProfile(profile);
             }

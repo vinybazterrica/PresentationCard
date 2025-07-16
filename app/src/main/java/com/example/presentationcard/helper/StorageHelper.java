@@ -56,8 +56,7 @@ public class StorageHelper {
         }
     }
 
-    public static void saveLinkedinProfileStorage(Context context, LinkedinProfile profile) {
-        StorageHelper.getInstance().init(context);
+    public static void saveLinkedinProfileStorage(LinkedinProfile profile) {
         StorageHelper.getInstance().saveLinkedinProfile(profile);
     }
 

@@ -1,11 +1,11 @@
 package com.example.presentationcard.application;
 
-import android.app.Application;  // Importa la clase Application base
+import android.app.Application;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import com.example.presentationcard.helper.StorageHelper;
 
-public class MyApplication extends Application {  // Extiende Application base
+public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
