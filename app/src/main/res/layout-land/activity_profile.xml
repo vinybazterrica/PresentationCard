@@ -84,7 +84,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginHorizontal="42dp"
-                android:layout_marginTop="32dp">
+                android:layout_marginTop="16dp">
 
                 <LinearLayout
                     android:id="@+id/llLinkedin"
@@ -111,18 +111,18 @@
 
                 <LinearLayout
                     android:id="@+id/network_item_2"
-                    style="@style/TextViewPurple500"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="80dp"
                     android:gravity="center"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:visibility="gone">
 
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:src="@drawable/email"
+                        android:src="@drawable/ic_whatsapp"
                         app:tint="@color/primary" />
 
                     <TextView
@@ -135,7 +135,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/network_item_3"
+                    android:id="@+id/llGithub"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/llLinkedin"
@@ -146,7 +146,7 @@
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:src="@drawable/email"
+                        android:src="@drawable/ic_github"
                         app:tint="@color/primary" />
 
                     <TextView
@@ -155,7 +155,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="5dp"
                         android:gravity="center"
-                        android:text="Network 3" />
+                        android:text="@string/user_github" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -167,7 +167,8 @@
                     android:layout_marginStart="80dp"
                     android:layout_marginTop="32dp"
                     android:gravity="center"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:visibility="gone">
 
                     <ImageView
                         android:layout_width="30dp"
