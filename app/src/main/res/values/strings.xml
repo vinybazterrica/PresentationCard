@@ -6,6 +6,7 @@
     <string name="user_name">Vinicius Bazterrica</string>
     <string name="go_to_experiences">Ir a Experiencias</string>
     <string name="go_to_certificates">Ir a Certificados</string>
+    <string name="user_github">vinybazterrica</string>
 
     <!--SplashActivity-->
     <string name="loading_data">Obteniendo datos</string>

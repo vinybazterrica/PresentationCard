@@ -11,6 +11,7 @@ public class Constants {
 
     //NUMBERS
     public static final int TWENTY_FOUR_HOURS_IN_MILLS = 86400000; //24 hours
+    public static final int FORTY_EIGHT_HOURS_IN_MILLIS  = 172800000; //48 hours
 
 
     //API
@@ -42,5 +43,8 @@ public class Constants {
         "https://api.educacionit.com/pdf/certificados/vinicius-kaluan-bazterrica-173248/31396?content_type=jpeg",
             "https://api.educacionit.com/pdf/certificados/vinicius-kaluan-bazterrica-173248/76206?content_type=jpeg"
     };
+
+    //URLS
+    public static final String GITHUB_URL = "https://github.com/vinybazterrica";
 }
 

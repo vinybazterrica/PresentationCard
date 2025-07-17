@@ -97,73 +97,17 @@ public class ProfileActivity extends BaseActivity {
             IntentHelper.goToCertificates(this, null, false);
         });
 
+        binding.llGithub.setOnClickListener(v -> {
+            goToUrl(Constants.GITHUB_URL);
+        });
+
+        setListenerSwithTheme();
+    }
+
+    private void setListenerSwithTheme(){
         ViewThemeSwitchBinding themeSwitchBinding = ViewThemeSwitchBinding.bind(
                 findViewById(R.id.themeSwitchContainer)
         );
         setupThemeSwitch(themeSwitchBinding.themeSwitch);
-    }
-
-    /**
-     * Called when the activity is about to become visible.
-     */
-    @Override
-    protected void onStart() {
-        super.onStart();
-    }
-
-    /**
-     * Called when the activity has become visible (it is now "resumed").
-     */
-    @Override
-    protected void onResume() {
-        super.onResume();
-        // Restore button2 visibility
-        /*Button button2 = findViewById(R.id.button2);
-        button2.setVisibility(button2Visibility);*/
-    }
-
-    /**
-     * Called when another activity is taking focus (this activity is about to be "paused").
-     */
-    @Override
-    protected void onPause() {
-        super.onPause();
-        // Save button2 visibility
-        /*Button button2 = findViewById(R.id.button2);
-        button2Visibility = button2.getVisibility();*/
-    }
-
-    /**
-     * Called when the activity is no longer visible (it is now "stopped").
-     */
-    @Override
-    protected void onStop() {
-        super.onStop();
-    }
-
-    /**
-     * Called just before the activity is destroyed. Used to clean up resources.
-     */
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
-
-    /**
-     * Called after your activity has been stopped, prior to it being started again.
-     */
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-    }
-
-    /**
-     * Saves the state of the activity.
-     */
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        // Save button2 visibility state
-        //outState.putParcelable(Constants.LINKEDIN_PROFILE, mLinkedinProfile); /*Lo almaceno en el Storage*/
     }
 }

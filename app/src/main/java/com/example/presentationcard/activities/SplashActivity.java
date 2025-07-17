@@ -37,8 +37,11 @@ public class SplashActivity extends BaseActivity {
         LinkedinProfile linkedinProfile = StorageHelper.getLinkedinProfileStorage();
         long lastLinkedinData = StorageHelper.getInstance().getLongPreferences(Constants.KEY_LAST_GET_LINKEDIN_DATA);
 
+        /*
+        * Se modifico a 48 horas para evitar problemas con la API gratuita
+        * */
         if (lastLinkedinData == 0 ||
-                System.currentTimeMillis() - lastLinkedinData > Constants.TWENTY_FOUR_HOURS_IN_MILLS ||
+                System.currentTimeMillis() - lastLinkedinData > Constants.FORTY_EIGHT_HOURS_IN_MILLIS ||
                     linkedinProfile == null){
             StorageHelper.getInstance().putLongPreferences(Constants.KEY_LAST_GET_LINKEDIN_DATA, System.currentTimeMillis());
             getUserLinkdeinData();
