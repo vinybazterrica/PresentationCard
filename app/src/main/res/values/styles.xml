@@ -24,13 +24,13 @@
             <item name="android:textColor">@color/primary </item>
         </style>
 
-    <!-- Subtítulos o experiencias -->
-    <style name="TextViewExperiences" parent="Widget.AppCompat.TextView">
-        <item name="android:textColor">@color/primaryVariant</item>
-        <item name="android:textSize">20sp</item>
-        <item name="android:layout_marginTop">4dp</item>
-        <item name="android:textStyle">bold</item>
-    </style>
+        <!-- Subtítulos de experiencias -->
+        <style name="TextViewExperiences" parent="Widget.AppCompat.TextView">
+            <item name="android:textColor">@color/primaryVariant</item>
+            <item name="android:textSize">20sp</item>
+            <item name="android:layout_marginTop">4dp</item>
+            <item name="android:textStyle">bold</item>
+        </style>
 
     <!-- Botón con borde azul -->
     <style name="ButtonBorderPurple500" parent="Widget.Material3.Button">

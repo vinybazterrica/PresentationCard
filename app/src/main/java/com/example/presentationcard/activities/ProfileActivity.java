@@ -65,7 +65,7 @@ public class ProfileActivity extends BaseActivity {
         binding.tvUserName.setText(mLinkedinProfile.getFull_name());
         binding.tvUserHeadLine.setText(mLinkedinProfile.getHeadline());
 
-        binding.txtLinkedinProfile.setText(mLinkedinProfile.getFull_name());
+        binding.tvLinkedinProfile.setText(mLinkedinProfile.getFull_name());
 
         binding.tvPhoneNumber.setText(mLinkedinProfile.getPhone());
 
@@ -97,11 +97,11 @@ public class ProfileActivity extends BaseActivity {
             goToUrl(mLinkedinProfile.getGithub_url());
         });
 
-        binding.tvPhoneNumber.setOnClickListener(v -> {
+        binding.llPhone.setOnClickListener(v -> {
             goToWhatsApp(mLinkedinProfile.getPhone());
         });
 
-        binding.tvGmail.setOnClickListener(v -> {
+        binding.llgmail.setOnClickListener(v -> {
             sendEmail(mLinkedinProfile.getEmail());
         });
 

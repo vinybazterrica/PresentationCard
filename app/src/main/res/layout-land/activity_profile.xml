@@ -99,7 +99,7 @@
                         app:tint="@color/primary" />
 
                     <TextView
-                        android:id="@+id/txtLinkedinProfile"
+                        android:id="@+id/tvLinkedinProfile"
                         style="@style/TextViewPurple500"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
@@ -173,7 +173,7 @@
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:src="@drawable/email"
+                        android:src="@drawable/ic_mail"
                         app:tint="@color/primary" />
 
                     <TextView

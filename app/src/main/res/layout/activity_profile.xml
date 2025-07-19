@@ -30,7 +30,6 @@
                 android:layout_width="200dp"
                 android:layout_height="200dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/android_sample_image"
                 app:shapeAppearanceOverlay="@style/CircularImageView" />
 
             <ProgressBar
@@ -57,7 +56,7 @@
                 android:paddingStart="24dp"
                 android:textSize="28sp"
                 android:textStyle="bold"
-                tools:text="@string/user_name" />
+                tools:text="usuario nombre" />
 
             <TextView
                 android:id="@+id/tvUserHeadLine"
@@ -67,7 +66,7 @@
                 android:layout_marginTop="8dp"
                 android:paddingStart="24dp"
                 android:textSize="20sp"
-                tools:text="@string/subtitle_main_screen" />
+                tools:text="usuario puesto" />
         </LinearLayout>
 
         <RelativeLayout
@@ -91,7 +90,7 @@
                     app:tint="@color/primary" />
 
                 <TextView
-                    android:id="@+id/txtLinkedinProfile"
+                    android:id="@+id/tvLinkedinProfile"
                     style="@style/TextViewPurple500"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -123,7 +122,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginStart="5dp"
                     android:gravity="center"
-                    tools:text="01121762741" />
+                    tools:text="01111111111" />
             </LinearLayout>
 
             <LinearLayout
@@ -175,7 +174,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginStart="5dp"
                     android:gravity="center"
-                    tools:text="vbazterrica" />
+                    tools:text="test@gmail.com" />
             </LinearLayout>
 
         </RelativeLayout>
