@@ -1,11 +1,9 @@
 package com.example.presentationcard.activities;
 
-import static com.example.presentationcard.helper.StorageHelper.getLinkedinProfileStorage;
-
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.presentationcard.R;
 import com.example.presentationcard.databinding.ActivitySplashBinding;
@@ -13,8 +11,8 @@ import com.example.presentationcard.helper.ResourcesHelper;
 import com.example.presentationcard.helper.StorageHelper;
 import com.example.presentationcard.helper.StringHelper;
 import com.example.presentationcard.models.entity.LinkedinProfile;
-import com.example.presentationcard.network.LinkedinCallBack;
-import com.example.presentationcard.network.LinkedinManager;
+import com.example.presentationcard.network.githubApi.GithubCallBack;
+import com.example.presentationcard.network.githubApi.GithubManager;
 import com.example.presentationcard.utils.Constants;
 
 public class SplashActivity extends BaseActivity {
@@ -30,48 +28,54 @@ public class SplashActivity extends BaseActivity {
 
         binding.tvVersionApp.setText(Constants.VERSION_APP + StringHelper.getVersionApp(this));
 
-        shouldGetLinkedinData();
+        shouldGetApiData();
     }
 
-    private void shouldGetLinkedinData() {
+    private void shouldGetApiData() {
         LinkedinProfile linkedinProfile = StorageHelper.getLinkedinProfileStorage();
         long lastLinkedinData = StorageHelper.getInstance().getLongPreferences(Constants.KEY_LAST_GET_LINKEDIN_DATA);
 
-        /*
-        * Se modifico a 48 horas para evitar problemas con la API gratuita
-        * */
         if (lastLinkedinData == 0 ||
-                System.currentTimeMillis() - lastLinkedinData > Constants.FORTY_EIGHT_HOURS_IN_MILLIS ||
-                    linkedinProfile == null){
+                System.currentTimeMillis() - lastLinkedinData > Constants.THIRTY_MINUTES_IN_MILLIS ||
+                linkedinProfile == null) {
             StorageHelper.getInstance().putLongPreferences(Constants.KEY_LAST_GET_LINKEDIN_DATA, System.currentTimeMillis());
-            getUserLinkdeinData();
+            getDataFromGithub();
         } else {
-            showToast(this,  Constants.USING_STORAGE_USER);
+            showToast(this, Constants.USING_STORAGE_USER);
             goToProfile(linkedinProfile);
         }
     }
 
-    private void getUserLinkdeinData() {
-        if (!ResourcesHelper.isNetworkAvailable(this)){
-            showToast(this,  Constants.ERROR_NETWORK);
+    private void getDataFromGithub() {
+        if (!ResourcesHelper.isNetworkAvailable(this)) {
+            showToast(this, getString(R.string.error_no_internet));
             return;
         }
 
         StringHelper.addDotsToMessaje(getString(R.string.loading_data), binding.tvLoading);
 
-        LinkedinManager.getLinkedinUserData(this, new LinkedinCallBack() {
-            @Override
-            public void onSuccess(LinkedinProfile profile) {
-                Log.d("ProfileActivity", "Perfil recibido: " + profile.getFull_name());
-                StorageHelper.saveLinkedinProfileStorage(profile);
-                showToast(SplashActivity.this,  Constants.SAVE_LINKEDIN_DATA);
-                goToProfile(profile);
-            }
 
-            @Override
-            public void onError(String errorMessage) {
-                Log.e("ProfileActivity", "Error: " + errorMessage);
-            }
-        });
+        //Espera 3 segundos para simular carga
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+            GithubManager.getGithubData(this, new GithubCallBack() {
+                @Override
+                public void onSuccess(LinkedinProfile profile) {
+                    Log.d("ProfileActivity GitHub", "Perfil recibido: " + profile.getFull_name());
+                    goToProfileWithData(profile);
+                }
+
+                @Override
+                public void onError(String errorMessage) {
+                    Log.e("ProfileActivity", "Error: " + errorMessage);
+                    showToast(SplashActivity.this, errorMessage);
+                }
+            });
+        }, Constants.SPLASH_SLEEP);
+    }
+
+    private void goToProfileWithData(LinkedinProfile profile) {
+        StorageHelper.saveLinkedinProfileStorage(profile);
+        showToast(SplashActivity.this, Constants.SAVE_LINKEDIN_DATA);
+        goToProfile(profile);
     }
 }

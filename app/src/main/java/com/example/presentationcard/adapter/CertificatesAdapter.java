@@ -19,14 +19,16 @@ import java.util.List;
 
 public class CertificatesAdapter extends RecyclerView.Adapter<CertificatesAdapter.CertificatesViewHolder> {
 
+    private String[] mCertificatesList;
     private OnCertificateClickListener listener;
 
     public interface OnCertificateClickListener {
         void onCertificateClick(int position);
     }
 
-    public CertificatesAdapter(OnCertificateClickListener listener) {
+    public CertificatesAdapter(String[] certificatesList, OnCertificateClickListener listener) {
         this.listener = listener;
+        this.mCertificatesList = certificatesList;
     }
 
     public class CertificatesViewHolder extends RecyclerView.ViewHolder {
@@ -37,7 +39,7 @@ public class CertificatesAdapter extends RecyclerView.Adapter<CertificatesAdapte
             this.binding = binding;
 
             itemView.setOnClickListener(v -> {
-                if (listener != null && getAdapterPosition() != RecyclerView.NO_POSITION) {
+                if (listener != null) {
                     listener.onCertificateClick(getAdapterPosition());
                 }
             });
@@ -57,7 +59,7 @@ public class CertificatesAdapter extends RecyclerView.Adapter<CertificatesAdapte
     public void onBindViewHolder(@NonNull CertificatesAdapter.CertificatesViewHolder holder, int position) {
 
         Picasso.get()
-                .load(Constants.CERTIFICATES[position])
+                .load(mCertificatesList[position])
                 .into(holder.binding.ivCertificateImage, new com.squareup.picasso.Callback() {
                     @Override
                     public void onSuccess() {
@@ -73,6 +75,6 @@ public class CertificatesAdapter extends RecyclerView.Adapter<CertificatesAdapte
 
     @Override
     public int getItemCount() {
-        return Constants.CERTIFICATES.length;
+        return mCertificatesList.length;
     }
 }

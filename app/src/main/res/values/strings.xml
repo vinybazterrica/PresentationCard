@@ -14,8 +14,15 @@
     <!-- ExperienceActivity -->
     <string name="experience_title_activity">Experiencias</string>
     <string name="experience_title">Puesto :</string>
+    <string name="job_type">Modalidad :</string>
     <string name="experience_description">Descripción :</string>
 
     <!-- CertificatesActivity -->
     <string name="certificates_title_activity">Certificados</string>
+    
+    <!-- ERRORS -->
+    <string name="error_no_mail_app">No hay aplicación de correo instalada</string>
+    <string name="error_not_found">Datos no encontrados</string>
+    <string name="error_data">Error al obtener los datos, intente mas tarde</string>
+    <string name="error_no_internet">Error de red, verifique su conexión a Internet</string>
 </resources>

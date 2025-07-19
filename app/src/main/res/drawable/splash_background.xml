@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <!-- Fondo blanco -->
-    <item android:drawable="@color/white" />
-
-    <!-- Imagen centrada -->
+    <item android:drawable="@color/splash_background_color" />
     <item android:drawable="@drawable/ic_launcher"
         android:gravity="center"
         android:width="300dp"
         android:height="300dp"/>
-
 </layer-list>

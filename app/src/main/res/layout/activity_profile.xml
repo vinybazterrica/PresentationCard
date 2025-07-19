@@ -74,7 +74,7 @@
             android:id="@+id/networks_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="42dp"
+            android:layout_marginHorizontal="24dp"
             android:layout_marginTop="16dp">
 
             <LinearLayout
@@ -101,14 +101,14 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/network_item_2"
+                android:id="@+id/llPhone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="80dp"
                 android:gravity="center"
                 android:orientation="horizontal"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <ImageView
                     android:layout_width="30dp"
@@ -117,12 +117,13 @@
                     app:tint="@color/primary" />
 
                 <TextView
+                    android:id="@+id/tvPhoneNumber"
                     style="@style/TextViewPurple500"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginStart="5dp"
                     android:gravity="center"
-                    android:text="Network 2" />
+                    tools:text="01121762741" />
             </LinearLayout>
 
             <LinearLayout
@@ -150,30 +151,31 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/network_item_4"
+                android:id="@+id/llgmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/network_item_2"
+                android:layout_below="@id/llPhone"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="80dp"
                 android:layout_marginTop="32dp"
                 android:gravity="center"
                 android:orientation="horizontal"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/email"
+                    android:src="@drawable/ic_mail"
                     app:tint="@color/primary" />
 
                 <TextView
+                    android:id="@+id/tvGmail"
                     style="@style/TextViewPurple500"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginStart="5dp"
                     android:gravity="center"
-                    android:text="Network 4" />
+                    tools:text="vbazterrica" />
             </LinearLayout>
 
         </RelativeLayout>

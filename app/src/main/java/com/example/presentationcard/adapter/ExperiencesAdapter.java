@@ -47,6 +47,7 @@ public class ExperiencesAdapter extends RecyclerView.Adapter<ExperiencesAdapter.
         holder.binding.tvExperience.setText(experience.getTitle());
         holder.binding.tvPeriod.setText(experience.getDate_range());
         holder.binding.tvDescription.setText(experience.getDescription());
+        holder.binding.tvJobType.setText(experience.getJob_type());
 
     }
 

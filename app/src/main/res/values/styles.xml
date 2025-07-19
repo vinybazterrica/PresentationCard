@@ -10,19 +10,19 @@
 
     <!-- TextViews -->
 
-    <!-- Título principal -->
-    <style name="TextViewTitles" parent="Widget.AppCompat.TextView">
-        <item name="android:textColor">@color/primary </item>
-        <item name="android:textSize">30sp</item>
-        <item name="android:layout_marginStart">30dp</item>
-        <item name="android:layout_marginTop">20dp</item>
-        <item name="android:textStyle">bold</item>
-    </style>
+        <!-- Título principal -->
+        <style name="TextViewTitles" parent="Widget.AppCompat.TextView">
+            <item name="android:textColor">@color/primary </item>
+            <item name="android:textSize">30sp</item>
+            <item name="android:layout_marginStart">30dp</item>
+            <item name="android:layout_marginTop">20dp</item>
+            <item name="android:textStyle">bold</item>
+        </style>
 
-    <!-- Texto de color primario -->
-    <style name="TextViewPurple500" parent="Widget.AppCompat.TextView">
-        <item name="android:textColor">@color/primary </item>
-    </style>
+        <!-- Texto de color primario -->
+        <style name="TextViewPurple500" parent="Widget.AppCompat.TextView">
+            <item name="android:textColor">@color/primary </item>
+        </style>
 
     <!-- Subtítulos o experiencias -->
     <style name="TextViewExperiences" parent="Widget.AppCompat.TextView">

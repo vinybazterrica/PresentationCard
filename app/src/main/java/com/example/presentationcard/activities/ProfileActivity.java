@@ -22,14 +22,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProfileActivity extends BaseActivity {
-
-    private int button2Visibility = VISIBLE;
     private ActivityProfileBinding binding;
     private LinkedinProfile mLinkedinProfile;
 
-    /**
-     * Called when the activity is first created. Used to initialize the activity.
-     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,12 +53,12 @@ public class ProfileActivity extends BaseActivity {
                 .into(binding.ivProfileImage, new com.squareup.picasso.Callback() {
                     @Override
                     public void onSuccess() {
-                        binding.progressBarImage.setVisibility(View.GONE);
+                        setGoneView(binding.progressBarImage);
                     }
 
                     @Override
                     public void onError(Exception e) {
-                        binding.progressBarImage.setVisibility(View.GONE);
+                        setGoneView(binding.progressBarImage);
                     }
                 });
 
@@ -71,9 +66,13 @@ public class ProfileActivity extends BaseActivity {
         binding.tvUserHeadLine.setText(mLinkedinProfile.getHeadline());
 
         binding.txtLinkedinProfile.setText(mLinkedinProfile.getFull_name());
+
+        binding.tvPhoneNumber.setText(mLinkedinProfile.getPhone());
+
+        binding.tvGmail.setText(mLinkedinProfile.getEmail());
     }
 
-    private void goToExperiences(List<LinkedinExperience> experiencesList){
+    private void goToExperiences(List<LinkedinExperience> experiencesList) {
         Bundle bundle = new Bundle();
         bundle.putParcelableArrayList(Constants.LINKEDIN_EXPERIENCES_LIST, new ArrayList<>(experiencesList));
         IntentHelper.goToExperience(this, bundle, false);
@@ -84,27 +83,32 @@ public class ProfileActivity extends BaseActivity {
             goToExperiences(mLinkedinProfile.getExperiences());
         });
 
-        binding.button1.setOnClickListener(v -> {
-            // Example hiding second button
-            binding.button2.setVisibility(binding.button2.getVisibility() == VISIBLE ? INVISIBLE : VISIBLE);
-        });
-
         binding.llLinkedin.setOnClickListener(v -> {
             goToUrl(mLinkedinProfile.getLinkedin_url());
         });
 
         binding.btnGoToCertificates.setOnClickListener(v -> {
-            IntentHelper.goToCertificates(this, null, false);
+            Bundle bundle = new Bundle();
+            bundle.putStringArray(Constants.KEY_CERTIFICATES, mLinkedinProfile.getCertificates());
+            IntentHelper.goToCertificates(this, bundle, false);
         });
 
         binding.llGithub.setOnClickListener(v -> {
-            goToUrl(Constants.GITHUB_URL);
+            goToUrl(mLinkedinProfile.getGithub_url());
+        });
+
+        binding.tvPhoneNumber.setOnClickListener(v -> {
+            goToWhatsApp(mLinkedinProfile.getPhone());
+        });
+
+        binding.tvGmail.setOnClickListener(v -> {
+            sendEmail(mLinkedinProfile.getEmail());
         });
 
         setListenerSwithTheme();
     }
 
-    private void setListenerSwithTheme(){
+    private void setListenerSwithTheme() {
         ViewThemeSwitchBinding themeSwitchBinding = ViewThemeSwitchBinding.bind(
                 findViewById(R.id.themeSwitchContainer)
         );

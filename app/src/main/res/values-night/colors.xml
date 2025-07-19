@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Primary colors -->
-    <color name="light_accent">#90CAF9</color> <!-- Azul claro para dark -->
+    <color name="light_accent">#90CAF9</color>
     <color name="primary">#90CAF9</color>
     <color name="primaryVariant">#42A5F5</color>
     <color name="teal_200">#66FFF9</color>
@@ -14,15 +14,18 @@
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
 
+    <!--splash-->
+    <color name="splash_background_color">#000000</color>
+
     <!-- Backgrounds and surfaces -->
-    <color name="background_light">#FAFAFA</color> <!-- No se usa aquí -->
+    <color name="background_light">#FAFAFA</color>
     <color name="background_dark">#121212</color>
     <color name="surface_light">#FFFFFF</color>
     <color name="surface_dark">#1E1E1E</color>
 
     <!-- Text/Icon colors on top of surfaces -->
-    <color name="onPrimary">#000000</color> <!-- Texto oscuro sobre primario claro -->
-    <color name="onSecondary">#000000</color> <!-- Texto oscuro sobre secundario claro -->
+    <color name="onPrimary">#000000</color>
+    <color name="onSecondary">#000000</color>
     <color name="onBackground_light">#000000</color>
     <color name="onBackground_dark">#FFFFFF</color>
     <color name="onSurface_light">#000000</color>

@@ -59,13 +59,36 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/linearJobType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvTypeTitle"
+                    style="@style/TextViewPurple500"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/job_type" />
+
+                <TextView
+                    android:id="@+id/tvJobType"
+                    style="@style/TextViewExperiences"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    tools:text="TEST" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/linearDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:visibility="gone"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="visible">
 
                 <TextView
                     android:id="@+id/tvDescriptionTitle"

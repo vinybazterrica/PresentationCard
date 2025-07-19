@@ -39,10 +39,6 @@
         <activity
             android:name=".activities.ProfileActivity"
             android:exported="true" />
-        <activity
-            android:name=".activities.EducationActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

@@ -1,5 +1,6 @@
 package com.example.presentationcard.activities;
 
+import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 
@@ -19,29 +20,36 @@ import com.example.presentationcard.helper.ResourcesHelper;
 import com.example.presentationcard.utils.Constants;
 
 public class CertificatesActivity extends AppCompatActivity {
-    
+
     private ActivityCertificatesBinding binding;
+    private String[] mCertificatesList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityCertificatesBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        
+
+        getCertificatesList();
+
         showCertificatesRecycler();
+    }
+
+    private void getCertificatesList() {
+        mCertificatesList = getIntent().getStringArrayExtra(Constants.KEY_CERTIFICATES);
     }
 
     private void showCertificatesRecycler() {
         binding.rvCertificates.setHasFixedSize(true);
         binding.rvCertificates.setLayoutManager(new StaggeredGridLayoutManager(1, setOrientationRecycler()));
-        binding.rvCertificates.setAdapter(new CertificatesAdapter(position -> {
+        binding.rvCertificates.setAdapter(new CertificatesAdapter(mCertificatesList, position -> {
             Bundle bundle = new Bundle();
-            bundle.putString(Constants.FULL_SCREEN_IMAGE_URL , Constants.CERTIFICATES[position]);
+            bundle.putString(Constants.FULL_SCREEN_IMAGE_URL, mCertificatesList[position]);
             IntentHelper.goToFullImage(this, bundle, false);
         }));
     }
 
-    private int setOrientationRecycler(){
+    private int setOrientationRecycler() {
         int orientation = 1;
         if (ResourcesHelper.isLandscape(this))
             orientation = 0;
