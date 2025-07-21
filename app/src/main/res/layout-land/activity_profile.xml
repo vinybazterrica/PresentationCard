@@ -87,8 +87,9 @@
 
                 <LinearLayout
                     android:id="@+id/llLinkedin"
-                    android:layout_width="wrap_content"
+                    android:layout_width="@dimen/social_buttons"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/social_button_background"
                     android:gravity="center"
                     android:orientation="horizontal">
 
@@ -105,15 +106,16 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="5dp"
                         android:gravity="center"
-                        tools:text="Linkedin" />
+                        android:text="@string/linkedin" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/llPhone"
-                    android:layout_width="wrap_content"
+                    android:layout_width="@dimen/social_buttons"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="80dp"
+                    android:background="@drawable/social_button_background"
                     android:gravity="center"
                     android:orientation="horizontal"
                     android:visibility="visible">
@@ -131,15 +133,16 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="5dp"
                         android:gravity="center"
-                        tools:text="01121762741" />
+                        android:text="@string/whatsapp" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/llGithub"
-                    android:layout_width="wrap_content"
+                    android:layout_width="@dimen/social_buttons"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/llLinkedin"
                     android:layout_marginTop="32dp"
+                    android:background="@drawable/social_button_background"
                     android:gravity="center"
                     android:orientation="horizontal">
 
@@ -155,17 +158,18 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="5dp"
                         android:gravity="center"
-                        android:text="@string/user_github" />
+                        android:text="@string/github" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/llgmail"
-                    android:layout_width="wrap_content"
+                    android:layout_width="@dimen/social_buttons"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/llPhone"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="80dp"
                     android:layout_marginTop="32dp"
+                    android:background="@drawable/social_button_background"
                     android:gravity="center"
                     android:orientation="horizontal"
                     android:visibility="visible">
@@ -183,7 +187,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="5dp"
                         android:gravity="center"
-                        tools:text="vbazterrica" />
+                        android:text="@string/email" />
                 </LinearLayout>
 
             </RelativeLayout>

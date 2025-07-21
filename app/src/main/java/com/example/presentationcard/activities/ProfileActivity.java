@@ -64,12 +64,6 @@ public class ProfileActivity extends BaseActivity {
 
         binding.tvUserName.setText(mLinkedinProfile.getFull_name());
         binding.tvUserHeadLine.setText(mLinkedinProfile.getHeadline());
-
-        binding.tvLinkedinProfile.setText(mLinkedinProfile.getFull_name());
-
-        binding.tvPhoneNumber.setText(mLinkedinProfile.getPhone());
-
-        binding.tvGmail.setText(mLinkedinProfile.getEmail());
     }
 
     private void goToExperiences(List<LinkedinExperience> experiencesList) {
