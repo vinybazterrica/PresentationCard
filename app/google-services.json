@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "762531208474",
+    "project_id": "presentationcard-2a2bf",
+    "storage_bucket": "presentationcard-2a2bf.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:762531208474:android:df29565267378e8910a0a3",
+        "android_client_info": {
+          "package_name": "com.example.presentationcard"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBK8NgQh24k2jPzF2rDb7ovQ4AFkqnxYdA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

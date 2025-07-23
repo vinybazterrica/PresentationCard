@@ -1,5 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
+
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
 }
 
 android {
@@ -10,7 +13,7 @@ android {
         applicationId "com.example.presentationcard"
         minSdk 24
         targetSdk 35
-        versionCode 14
+        versionCode 15
         versionName "1.0.$versionCode"
     }
 
@@ -46,4 +49,9 @@ dependencies {
     implementation libs.photoview
 
     implementation libs.constraintlayout
+
+    //Firebase
+    implementation platform('com.google.firebase:firebase-bom:34.0.0')
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation("com.google.firebase:firebase-crashlytics-ndk")
 }
