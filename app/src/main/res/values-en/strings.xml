@@ -6,7 +6,7 @@
     <string name="user_name">Vinicius Bazterrica</string>
     <string name="go_to_experiences">Go to Experiences</string>
     <string name="go_to_certificates">Go To Certificates</string>
-    <string name="user_github">vinybazterrica</string>
+    <string name="go_to_about">Go to About</string>
 
     <!--SplashActivity-->
     <string name="loading_data">Obtaining data</string>
@@ -25,4 +25,9 @@
     <string name="error_not_found">Data not found.</string>
     <string name="error_data">Error retrieving data, try again later.</string>
     <string name="error_no_internet">Network error, please check your Internet connection.</string>
+
+    <!--About-->
+    <string name="about_01">The information is obtained from the Splash using Retrofit.\n The information is stored in a GitHub repository \nhttps://github.com/vinybazterrica/jsonData.</string>
+    <string name="about_02">The information is stored in the Storage for 30 minutes in the device, after this time the repository is consulted again.</string>
+    <string name="about_03">Firebase and Crashlytics were incorporated.</string>
 </resources>

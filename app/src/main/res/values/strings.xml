@@ -6,7 +6,7 @@
     <string name="user_name">Vinicius Bazterrica</string>
     <string name="go_to_experiences">Ir a Experiencias</string>
     <string name="go_to_certificates">Ir a Certificados</string>
-    <string name="user_github">vinybazterrica</string>
+    <string name="go_to_about">Ir a Acerca de</string>
 
     <!--SplashActivity-->
     <string name="loading_data">Obteniendo datos</string>
@@ -32,4 +32,8 @@
     <string name="email" translatable="false">Mail</string>
     <string name="whatsapp" translatable="false">WhatsApp</string>
 
+    <!--About-->
+    <string name="about_01">Se obtiene la información desde el Splash utilizando Retrofit.\n La información se encuentra almacenada en un reporitorio de GitHub \nhttps://github.com/vinybazterrica/jsonData.</string>
+    <string name="about_02">Se almacena la información en el Storage durante 30 minutos en el dispositivo, pasado este tiempo se vuelve a consultar al repositorio.</string>
+    <string name="about_03">Se incorporo Firebase y Crashlytics.</string>
 </resources>

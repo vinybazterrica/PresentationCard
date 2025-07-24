@@ -6,7 +6,7 @@
     <string name="user_name">Vinicius Bazterrica</string>
     <string name="go_to_experiences">Aceder a Experiências</string>
     <string name="go_to_certificates">Aceder a Certificados</string>
-    <string name="user_github">vinybazterrica</string>
+    <string name="go_to_about">Ir para Sobre</string>
 
     <!--SplashActivity-->
     <string name="loading_data">Obtenção de dados</string>
@@ -25,4 +25,9 @@
     <string name="error_not_found">Dados não encontrados.</string>
     <string name="error_data">Erro ao recuperar dados, tente novamente mais tarde.</string>
     <string name="error_no_internet">Erro de rede, verifique a sua ligação à Internet.</string>
+
+    <!--About-->
+    <string name="about_01">As informações são obtidas a partir do Splash utilizando o Retrofit.\n As informações são armazenadas num repositório do GitHub \nhttps://github.com/vinybazterrica/jsonData.</string>
+    <string name="about_02">As informações são armazenadas no Storage durante 30 minutos no dispositivo, após o que o repositório é consultado novamente.</string>
+    <string name="about_03">O Firebase e o Crashlytics foram incorporados.</string>
 </resources>

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.presentationcard.activities.AboutActivity;
 import com.example.presentationcard.activities.CertificatesActivity;
 import com.example.presentationcard.activities.ExperienceActivity;
 import com.example.presentationcard.activities.FullScreenImageActivity;
@@ -25,6 +26,10 @@ public class IntentHelper {
 
     public static void goToFullImage(Activity activity, Bundle bundle, boolean finish) {
         launchIntentAndFinish(activity, FullScreenImageActivity.class, bundle , finish);
+    }
+
+    public static void goToAbout(Activity activity, Bundle bundle, boolean finish) {
+        launchIntentAndFinish(activity, AboutActivity.class, bundle , finish);
     }
 
     private static void launchIntentAndFinish(Activity activity, Class<?> className, Bundle params, boolean finish) {

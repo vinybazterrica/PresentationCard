@@ -87,6 +87,11 @@ public class ProfileActivity extends BaseActivity {
             IntentHelper.goToCertificates(this, bundle, false);
         });
 
+        binding.btnGoToAbout.setOnClickListener(View-> {
+            IntentHelper.goToAbout(this, null,false);
+        });
+
+
         binding.llGithub.setOnClickListener(v -> {
             goToUrl(mLinkedinProfile.getGithub_url());
         });

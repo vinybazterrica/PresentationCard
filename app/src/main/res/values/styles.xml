@@ -20,7 +20,7 @@
         </style>
 
         <!-- Texto de color primario -->
-        <style name="TextViewPurple500" parent="Widget.AppCompat.TextView">
+        <style name="TextViewPrimaryColor" parent="Widget.AppCompat.TextView">
             <item name="android:textColor">@color/primary </item>
         </style>
 
@@ -38,14 +38,5 @@
         <item name="strokeWidth">2dp</item>
         <item name="backgroundTint">@android:color/transparent</item>
         <item name="android:textColor">@color/primary </item>
-    </style>
-
-    <!--Floating Action button-->
-    <style name="FloatingActionButton" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="backgroundTint">@color/transparent</item>
-        <item name="tint">@color/primary</item>
-        <item name="android:layout_margin">16dp</item>
-        <item name="srcCompat">@drawable/ic_next</item>
-        <item name="borderWidth">2dp</item>
     </style>
 </resources>
