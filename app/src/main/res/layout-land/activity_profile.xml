@@ -18,21 +18,114 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/ivProfileImage"
+            <RelativeLayout
+                android:id="@+id/relativeProfileImage"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
                 android:layout_marginStart="48dp"
-                android:layout_marginEnd="32dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/android_sample_image"
-                app:shapeAppearanceOverlay="@style/CircularImageView" />
+                android:layout_marginEnd="32dp">
 
-            <ProgressBar
-                android:id="@+id/progressBarImage"
-                android:layout_width="wrap_content"
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ivProfileImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/android_sample_image"
+                    app:shapeAppearanceOverlay="@style/CircularImageView" />
+
+                <ProgressBar
+                    android:id="@+id/progressBarImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/networks_container"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true" />
+                android:layout_marginHorizontal="42dp"
+                android:layout_below="@+id/relativeProfileImage"
+                android:layout_marginTop="16dp">
+
+                <LinearLayout
+                    android:id="@+id/llLinkedin"
+                    android:layout_width="@dimen/social_buttons_landscape"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/social_button_background"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_linkedin"
+                        app:tint="@color/primary" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llPhone"
+                    android:layout_width="@dimen/social_buttons_landscape"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="80dp"
+                    android:background="@drawable/social_button_background"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:visibility="visible">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_whatsapp"
+                        app:tint="@color/primary" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llGithub"
+                    android:layout_width="@dimen/social_buttons_landscape"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/llLinkedin"
+                    android:layout_marginTop="32dp"
+                    android:background="@drawable/social_button_background"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_github"
+                        app:tint="@color/primary" />
+
+                    <TextView
+                        style="@style/TextViewPrimaryColor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="5dp"
+                        android:gravity="center"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llgmail"
+                    android:layout_width="@dimen/social_buttons_landscape"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/llPhone"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="80dp"
+                    android:layout_marginTop="32dp"
+                    android:background="@drawable/social_button_background"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:visibility="visible">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_mail"
+                        app:tint="@color/primary" />
+                </LinearLayout>
+
+            </RelativeLayout>
         </RelativeLayout>
 
 
@@ -78,120 +171,6 @@
                     android:textSize="20sp" />
             </LinearLayout>
 
-            <RelativeLayout
-                android:id="@+id/networks_container"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="42dp"
-                android:layout_marginTop="16dp">
-
-                <LinearLayout
-                    android:id="@+id/llLinkedin"
-                    android:layout_width="@dimen/social_buttons"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/social_button_background"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/ic_linkedin"
-                        app:tint="@color/primary" />
-
-                    <TextView
-                        android:id="@+id/tvLinkedinProfile"
-                        style="@style/TextViewPrimaryColor"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="5dp"
-                        android:gravity="center"
-                        android:text="@string/linkedin" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/llPhone"
-                    android:layout_width="@dimen/social_buttons"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="80dp"
-                    android:background="@drawable/social_button_background"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:visibility="visible">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/ic_whatsapp"
-                        app:tint="@color/primary" />
-
-                    <TextView
-                        android:id="@+id/tvPhoneNumber"
-                        style="@style/TextViewPrimaryColor"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="5dp"
-                        android:gravity="center"
-                        android:text="@string/whatsapp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/llGithub"
-                    android:layout_width="@dimen/social_buttons"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/llLinkedin"
-                    android:layout_marginTop="32dp"
-                    android:background="@drawable/social_button_background"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/ic_github"
-                        app:tint="@color/primary" />
-
-                    <TextView
-                        style="@style/TextViewPrimaryColor"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="5dp"
-                        android:gravity="center"
-                        android:text="@string/github" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/llgmail"
-                    android:layout_width="@dimen/social_buttons"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/llPhone"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="80dp"
-                    android:layout_marginTop="32dp"
-                    android:background="@drawable/social_button_background"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:visibility="visible">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/ic_mail"
-                        app:tint="@color/primary" />
-
-                    <TextView
-                        android:id="@+id/tvGmail"
-                        style="@style/TextViewPrimaryColor"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="5dp"
-                        android:gravity="center"
-                        android:text="@string/email" />
-                </LinearLayout>
-
-            </RelativeLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -226,7 +205,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="42dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="40dp"
                 android:text="@string/go_to_experiences" />
 
             <Button
@@ -237,6 +216,15 @@
                 android:layout_marginHorizontal="42dp"
                 android:layout_marginTop="10dp"
                 android:text="@string/go_to_certificates" />
+
+            <Button
+                android:id="@+id/btnGoToAbout"
+                style="@style/ButtonsBorder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="42dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/go_to_about"  />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

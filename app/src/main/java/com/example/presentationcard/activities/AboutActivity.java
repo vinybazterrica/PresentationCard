@@ -1,6 +1,8 @@
 package com.example.presentationcard.activities;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +25,9 @@ public class AboutActivity extends AppCompatActivity {
 
     private ActivityAboutBinding binding;
     private List<SlideItem> items;
+    private Handler autoScrollHandler = new Handler(Looper.getMainLooper());
+    private Runnable autoScrollRunnable;
+    private static final int AUTO_SCROLL_DELAY = 5000; // 5 segundos
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +41,7 @@ public class AboutActivity extends AppCompatActivity {
 
         setupViewPager();
         setupFab();
+        startAutoScroll();
     }
 
     private void setupViewPager() {
@@ -43,14 +49,26 @@ public class AboutActivity extends AppCompatActivity {
         binding.vpAbout.setAdapter(adapter);
     }
 
+    private void advanceViewPager() {
+        int currentItem = binding.vpAbout.getCurrentItem();
+        int nextItem = (currentItem + 1) % items.size();
+        binding.vpAbout.setCurrentItem(nextItem, true);
+    }
+
+    private void startAutoScroll() {
+        autoScrollRunnable = new Runnable() {
+            @Override
+            public void run() {
+                advanceViewPager();
+                autoScrollHandler.postDelayed(this, AUTO_SCROLL_DELAY);
+            }
+        };
+        autoScrollHandler.postDelayed(autoScrollRunnable, AUTO_SCROLL_DELAY);
+    }
+
     private void setupFab() {
         binding.fabNext.setOnClickListener(view -> {
-            int currentItem = binding.vpAbout.getCurrentItem();
-            if (currentItem < items.size() - 1) {
-                binding.vpAbout.setCurrentItem(currentItem + 1, true);
-            } else {
-                binding.vpAbout.setCurrentItem(0, true); // reinicia
-            }
+            advanceViewPager();
         });
     }
 }
