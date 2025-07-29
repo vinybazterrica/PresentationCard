@@ -1,6 +1,7 @@
 package com.example.presentationcard.activities;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,5 +32,19 @@ public class FullScreenImageActivity extends AppCompatActivity {
 
     private void showFullScreenImage(String imageUrl) {
         Picasso.get().load(imageUrl).into(binding.pvImage);
+
+        Picasso.get()
+                .load(imageUrl)
+                .into(binding.pvImage, new com.squareup.picasso.Callback() {
+                    @Override
+                    public void onSuccess() {
+                        binding.progressBar.setVisibility(View.GONE);
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+                        binding.progressBar.setVisibility(View.GONE);
+                    }
+                });
     }
 }
